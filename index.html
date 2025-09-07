@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💌</title>
+  <title>💌💌</title>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -24,8 +24,6 @@
       background: radial-gradient(1200px 800px at 20% 0%, var(--bg2), var(--bg1)) fixed;
       overflow-x:hidden;
     }
-
-    /* Floating pastel blobs */
     .floaty{position:fixed; inset:0; pointer-events:none; z-index:-1;}
     .floaty span{
       position:absolute; width:18vmin; height:18vmin; opacity:.25; filter:blur(2px);
@@ -35,66 +33,55 @@
     }
     @keyframes drift{to{transform: translateY(-120vh) rotate(360deg)}}
 
-    /* ---------- Layout + Card ---------- */
-    .wrapper{
-      min-height:100%;
-      display:grid;
-      place-items:center;
-      padding: clamp(1rem, 3vw, 2rem);
-    }
+    .wrapper{ min-height:100%; display:grid; place-items:center; padding:2rem; }
     .card{
       width:min(720px, 92vw);
       background:#fff; 
       border:4px dashed var(--pink);
       border-radius:2rem;
       box-shadow:0 10px 30px rgba(255,105,180,.2);
-      padding:
-        clamp(1rem, 2.5vw, 2rem)
-        clamp(1rem, 2vw, 1.5rem)
-        clamp(1.25rem, 3vw, 2.5rem);
+      padding:2rem 1.5rem 2.5rem;
       text-align:center;
       position:relative;
       overflow:hidden;
     }
-    .card:before{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background: repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,158,203,.15) 12px 24px);
-      mix-blend-mode: multiply;
-    }
-    h1{
-      font-family:'Quicksand', system-ui, sans-serif;
-      margin:.5rem 0 1.25rem;
-      font-size: clamp(1.6rem, 5vw, 2.6rem);
-    }
-    .main-img{
-      width: clamp(140px, 28vw, 220px);
-      display:block; margin:0 auto .5rem;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,.08));
-    }
-    .sub{margin-top:.25rem; font-size: clamp(.9rem, 2.2vw, .95rem); opacity:.8}
+    .card:before{ content:""; position:absolute; inset:0; pointer-events:none; background: repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,158,203,.15) 12px 24px); mix-blend-mode: multiply; }
+    h1{ font-family:'Quicksand', system-ui, sans-serif; margin:.5rem 0 1.25rem; font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
 
-    .button-group{ margin-top:1.25rem; display:flex; justify-content:center; align-items:center; gap: clamp(.5rem, 3vw, 1.25rem); flex-wrap:wrap; }
+    .main-img{ width:min(220px, 45vw); display:block; margin:0 auto 0.5rem; filter: drop-shadow(0 6px 12px rgba(0,0,0,.08)); }
+
+    .sub{margin-top:.25rem; font-size:.95rem; opacity:.8}
+
+    .button-group{ margin-top:1.25rem; display:flex; justify-content:center; align-items:center; gap:1.25rem; flex-wrap:wrap; }
     button{
-      padding: clamp(.7rem, 2.2vw, .95rem) clamp(1rem, 3vw, 1.45rem);
-      font-size: clamp(1rem, 2.6vw, 1.1rem);
-      border:none; cursor:pointer; border-radius:999px;
+      padding:.95rem 1.45rem; font-size:1.1rem; border:none; cursor:pointer; border-radius:999px;
       background:#ffd1dc; color:#a33a75; font-weight:700; letter-spacing:.3px;
-      box-shadow:0 6px 0 #e3a9b8, 0 10px 24px rgba(255,105,180,.25);
+      box-shadow:0 8px 0 #e3a9b8, 0 10px 24px rgba(255,105,180,.25);
       user-select:none; will-change: transform;
     }
     button:active{ transform: translateY(3px); box-shadow:0 5px 0 #e3a9b8, 0 6px 12px rgba(255,105,180,.2) }
-    .yes{ --scale:1; background: linear-gradient(180deg, #c4ffd9, #90ee90); box-shadow:0 8px 0 #6bcf78, 0 12px 26px rgba(144,238,144,.35); color:#1e5a2f; animation: pulse 1.4s ease-in-out infinite; }
-    .no{  --scale:1; background: linear-gradient(180deg, #ffc2c2, #f7a6a6); box-shadow:0 8px 0 #e58686, 0 12px 26px rgba(240,128,128,.35); color:#7a1e1e; animation: wiggle .7s ease-in-out infinite; }
+
+    .yes{ 
+      --scale: 1; 
+      background: linear-gradient(180deg, #c4ffd9, #90ee90); 
+      box-shadow:0 8px 0 #6bcf78, 0 12px 26px rgba(144,238,144,.35); color:#1e5a2f; 
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    .no{ 
+      --scale: 1; 
+      background: linear-gradient(180deg, #ffc2c2, #f7a6a6); 
+      box-shadow:0 8px 0 #e58686, 0 12px 26px rgba(240,128,128,.35); color:#7a1e1e; 
+      animation: wiggle .7s ease-in-out infinite;
+    }
     @keyframes pulse{ 0%,100%{ transform: scale(calc(var(--scale) * 1)); } 50%{ transform: scale(calc(var(--scale) * 1.06)); } }
     @keyframes wiggle{ 0%,100%{ transform: scale(var(--scale)) rotate(-2deg); } 50%{ transform: scale(var(--scale)) rotate(2deg); } }
 
-    .footer-note{ margin-top:1rem; font-size:clamp(.85rem,2.2vw,.95rem); opacity:.75 }
+    .footer-note{ margin-top:1rem; font-size:.9rem; opacity:.75 }
 
-    /* Floating gifs */
-    .cat-gif { position: absolute; width: clamp(72px, 12vw, 120px); pointer-events: none; animation: floatUp 5s linear forwards; }
+    .cat-gif { position: absolute; width: 120px; pointer-events: none; animation: floatUp 5s linear forwards; }
     @keyframes floatUp { 0% { opacity: 0; transform: translateY(100px) scale(0.8); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(-300px) scale(1.1); } }
 
-    /* ---------- Bouquets ---------- */
+    /* Bouquet styles */
     .bouquet { width:100%; display:block; filter: drop-shadow(0 8px 14px rgba(0,0,0,.12)); animation: sway 3.2s ease-in-out infinite; transform-origin: 150px 300px; margin:0; }
     @keyframes sway { 0%,100%{ transform: rotate(-1.8deg);} 50%{ transform: rotate(1.8deg);} }
 
@@ -104,7 +91,7 @@
       right: 1.25rem;
       top: 50%;
       transform: translateY(-50%);
-      width: clamp(240px, 30vw, 560px);
+      width: clamp(360px, 34vw, 560px);
       z-index: 10;
       pointer-events: none;
       text-align: center;
@@ -115,19 +102,20 @@
       left: 1.25rem;
       top: 50%;
       transform: translateY(-50%);
-      width: clamp(240px, 30vw, 560px);
+      width: clamp(360px, 34vw, 560px);
       z-index: 10;
       pointer-events: none;
       text-align: center;
     }
+    @media (max-width: 900px){ #bouquetWrapLeft{ display:none; } }
 
     /* Centered bottom caption */
     .page-caption{
       position: fixed;
       left: 50%;
       transform: translateX(-50%);
-      bottom: clamp(.75rem, 2.5vw, 1.5rem);
-      padding: clamp(8px, 1.6vw, 10px) clamp(12px, 2.2vw, 18px);
+      bottom: 1.5rem;
+      padding: 10px 18px;
       background: rgba(255,240,247,.95);
       border: 2px dashed var(--pink);
       border-radius: 14px;
@@ -135,7 +123,7 @@
       color:#a33a75;
       font-family:'Quicksand', system-ui, sans-serif;
       font-weight:700;
-      font-size: clamp(.85rem, 2.4vw, 1rem);
+      font-size: clamp(.8rem, 1.1vw, 1rem);
       line-height:1.25;
       text-align:center;
       max-width: min(720px, 92vw);
@@ -144,28 +132,41 @@
       pointer-events: none;
     }
 
-    /* ---------- Breakpoints ---------- */
-    /* Tablet */
-    @media (max-width: 900px){
-      #bouquetWrapLeft{ display:none; }     /* hide left bouquet on tablet/phone */
-      #bouquetWrap{ width: clamp(200px, 34vw, 320px); }
+    /* Tiny toast after 3x "No" */
+    .quip{
+      position: fixed;
+      left: 50%;
+      bottom: clamp(2rem, 6vw, 3.5rem);
+      transform: translateX(-50%);
+      background:#fff;
+      color:#a33a75;
+      border:2px dashed var(--pink);
+      border-radius:14px;
+      padding:.65rem 1rem;
+      font-family:'Quicksand', system-ui, sans-serif;
+      font-weight:700;
+      box-shadow:0 8px 24px rgba(255,105,180,.2);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .25s, transform .25s;
+      z-index:12;
     }
+    .quip.show{ opacity:1; transform: translateX(-50%) translateY(-6px); }
 
-    /* Phone */
-    @media (max-width: 600px){
-      #bouquetWrap{
-        right: .75rem;
-        top: 46%;
-        transform: translateY(-46%);
-        width: clamp(180px, 40vw, 260px);
-      }
-      .card{ border-width:3px; }
+    /* Special gif that appears with the quip on 3rd "No" */
+    .no3-gif{
+      position: fixed;
+      left:50%;
+      transform: translateX(-50%);
+      bottom: calc(3.5rem + 72px);
+      width: clamp(120px, 22vw, 220px);
+      pointer-events:none;
+      z-index: 12;
+      animation: popIn .25s ease-out;
     }
-
-    /* Very small phones (SE) */
-    @media (max-width: 380px){
-      .card{ width: 95vw; }
-      .button-group{ gap:.6rem; }
+    @keyframes popIn{
+      from{ transform: translateX(-50%) scale(.9); opacity:0; }
+      to{ transform: translateX(-50%) scale(1); opacity:1; }
     }
   </style>
 </head>
@@ -175,7 +176,7 @@
   <main class="wrapper">
     <section class="card" role="dialog" aria-labelledby="ask">
       <img class="main-img" id="mymelodyImg" src="https://media.tenor.com/SzEa9KOp6vwAAAAj/sanrio.gif" alt="My Melody" />
-      <h1 id="ask">May I be your boyfriend?</h1>
+      <h1 id="ask">May I be your boyfriend??</h1>
       <p class="sub"></p>
 
       <div class="button-group" id="btnRow">
@@ -183,7 +184,7 @@
         <button class="no" id="noBtn" aria-label="No">No 😢</button>
       </div>
 
-      <p class="footer-note">Click "No" for an easter egg (but dont actually mean it)</p>
+      <p class="footer-note">Click "No" for an easter egg</p>
     </section>
   </main>
 
@@ -209,11 +210,12 @@
     const yesBtn = document.getElementById('yesBtn');
     const noBtn  = document.getElementById('noBtn');
 
+    /* YES click -> success screen */
     yesBtn.addEventListener('click', ()=>{
       document.body.innerHTML = `
         <div class="floaty" aria-hidden="true"></div>
         <main class="wrapper">
-          <section class="card" style="padding:2rem 1.25rem 2.25rem">
+          <section class="card" style="padding:2.25rem 1.5rem 2.75rem">
             <img class="main-img" id="happyHango" src="https://media.tenor.com/m0s-EM6wk_YAAAAi/hangyodon-sanrio.gif" alt="Hangyodon happy" />
             <h1>YAY!!!</h1>
             <p>We will be in each other's care!</p>
@@ -243,13 +245,13 @@
         }
       })();
 
-      /* draw bouquets (both sides on desktop; left hidden on small) */
+      /* draw bouquets both sides */
       requestAnimationFrame(()=>{
         drawBouquet('bouquetWrap');      // right
         drawBouquet('bouquetWrapLeft');  // left
       });
 
-      /* Burst images when clicking Hangyodon */
+      /* YES screen burst images */
       const yesBurstImgs = [
         "https://media1.tenor.com/m/EUxmm_pMfxMAAAAC/tinkatink-pokemon.gif",
         "https://media.tenor.com/Z3cHKY-9vuQAAAAi/cingcing-my-melody.gif",
@@ -268,7 +270,7 @@
             setTimeout(() => {
               const img = document.createElement('img');
               img.src = yesBurstImgs[Math.floor(Math.random() * yesBurstImgs.length)];
-              img.className = 'cat-gif';
+              img.className = 'cat-gif'; // uses the floatUp anim
               const x = Math.random() * (window.innerWidth  - 160);
               const y = Math.random() * (window.innerHeight - 160);
               img.style.left = x + 'px';
@@ -281,8 +283,24 @@
       }
     });
 
-    /* "No" easter egg */
-    let yesScale = 1, noScale = 1;
+    /* "No" easter egg + joke after 3 clicks */
+    let yesScale = 1;
+    let noScale  = 1;
+    let noClicks = 0;
+
+    function showQuip(msg){
+      let q = document.getElementById('quip');
+      if(!q){
+        q = document.createElement('div');
+        q.id = 'quip';
+        q.className = 'quip';
+        document.body.appendChild(q);
+      }
+      q.textContent = msg;
+      requestAnimationFrame(()=> q.classList.add('show'));
+      setTimeout(()=> q.classList.remove('show'), 1800);
+    }
+
     const catGifs = [
       "https://media1.tenor.com/m/KX6SK2KlnDoAAAAC/sad-cat.gif",
       "https://media.tenor.com/0QkZnCmGFX0AAAAM/banana-cat-banana-cat-crying.gif",
@@ -291,8 +309,12 @@
       "https://media1.tenor.com/m/cz1GUolsj2YAAAAC/crying-cry.gif",
       "https://media1.tenor.com/m/iewR3VUONzgAAAAC/n%C3%A3o-chora.gif"
     ];
+
+    const noTripleGif = "https://media1.tenor.com/m/wo25HeIAd6oAAAAC/hello-kitty-island-adventure-hangyodon.gif";
+
     noBtn.addEventListener('click', ()=>{
-      yesScale *= 1.2;  noScale *= 0.8;
+      yesScale *= 1.2;
+      noScale  *= 0.8;
       yesBtn.style.setProperty('--scale', yesScale);
       noBtn.style.setProperty('--scale', noScale);
 
@@ -303,9 +325,22 @@
       gif.style.top  = Math.random() * (window.innerHeight - 150) + 'px';
       document.body.appendChild(gif);
       setTimeout(()=> gif.remove(), 5000);
+
+      noClicks++;
+      if(noClicks === 3){
+        showQuip('Are you serious');
+        // show your special Hangyodon gif near the bottom center
+        const h = document.createElement('img');
+        h.src = noTripleGif;
+        h.alt = "Hangyodon reaction";
+        h.className = 'no3-gif';
+        document.body.appendChild(h);
+        setTimeout(()=> h.remove(), 2200);  // disappears shortly after the quip
+        noClicks = 0;
+      }
     });
 
-    /* draw bouquet into a container id */
+    /* bouquet drawer (used on success screen) */
     function drawBouquet(targetId = 'bouquetWrap'){
       const mount = document.getElementById(targetId);
       if(!mount) return;
